@@ -8,7 +8,6 @@ const Posts = require('../posts/postDb')
 
 router.post('/', validateUser, (req, res) => {
   // do your magic!
-
   Data.insert(req.body)
     .then(post => {
       res.status(201).json(req.body)
@@ -166,14 +165,6 @@ function validateUser(req, res, next) {
 //if (Object.getOwnPropertyNames(obj).length > 0) return false;
 
 function validatePost(req, res, next) {
-  // function isEmpty(obj) {
-  //   for (var key in obj) {
-  //     if (obj.hasOwnProperty(key))
-  //       return false;
-  //   }
-  //   return true;
-  // };
-
   if (Object.getOwnPropertyNames(req.body).length > 0) {
       res
         .status(400)
